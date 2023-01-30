@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0;
+let gamesPlayed = 0;
+
 function getComputerChoice () {
     // set computerChoice equal to a random number between 0 and 2
     let computerChoice = Math.floor(Math.random() * 3);
@@ -22,14 +26,15 @@ function getComputerChoice () {
 }
 
 function gameRound(playerChoice, computerChoice) {
-    console.log(`Player: ${playerChoice} Computer: ${computerChoice}`);
 
     // conditions for rock
     if (playerChoice === 'rock' && computerChoice === 'rock'){
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Tie game!`;
     } else if (playerChoice === 'rock' && computerChoice === 'paper') {
+        computerScore++;
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Computer wins!`;
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+        playerScore++;
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Player wins!`;
     }
 
@@ -37,8 +42,10 @@ function gameRound(playerChoice, computerChoice) {
     if (playerChoice === 'paper' && computerChoice === 'paper'){
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Tie game!`;
     } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+        computerScore++;
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Computer wins!`;
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+        playerScore++;
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Player wins!`;
     }
 
@@ -46,17 +53,32 @@ function gameRound(playerChoice, computerChoice) {
     if (playerChoice === 'scissors' && computerChoice === 'scissors'){
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Tie game!`;
     } else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+        computerScore++;
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Computer wins!`;
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+        playerScore++;
         return `Player chooses ${playerChoice}. Computer chooses ${computerChoice}. Player wins!`;
     }
 ;}
 
-let computerChoice = getComputerChoice();
-let playerChoice = prompt("Rock, paper or scissors?").toLowerCase();
 
-if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
-    console.log(gameRound(playerChoice, computerChoice));  
+while (gamesPlayed < 5) {
+
+    let computerChoice = getComputerChoice();
+    let playerChoice = prompt("Rock, paper or scissors?").toLowerCase();
+
+    if (playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
+        alert(gameRound(playerChoice, computerChoice));
+        gamesPlayed++;  
+    } else {
+        alert("Please enter either rock, paper or scissors.");
+    } 
+}
+
+if (playerScore > computerScore) {
+    alert(`Player wins with a score of ${playerScore} - ${computerScore}`);
+} else if (computerScore > playerScore) {
+    alert(`Computer wins with a score of ${computerScore} - ${playerScore}`);
 } else {
-    alert("Please enter either rock, paper or scissors.");
+    alert(`The game is tied ${playerScore} - ${computerScore}`)
 }
