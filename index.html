@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper, scissors!</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
+
+    <audio src="sounds/hover.wav" id="hover"></audio>
+
+    <p id="title">Rock, paper, scissors</p>
+    <div class="game">
+        <img src="images/rock.png" id="rock">
+        <img src="images/paper.png" id="paper">
+        <img src="images/scissors.png" id="scissors")>
+    </div>
+
+    <div id="game-status">Make your selection; first to 5 wins!</div>
+
+    <div id="score">Player: 0 Computer: 0</div>
     
 </body>
 </html>

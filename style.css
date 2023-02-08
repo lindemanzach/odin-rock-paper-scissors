@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "Roboto";
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+    
+}
+
+.image-enter {
+    transform: scale(125%);
+}
+
+#score {    
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 40px;
+}
+
+#game-status {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    font-size: 30px;
+}
